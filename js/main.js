@@ -1,72 +1,38 @@
-let usuario = "valen"
-let contraseña = "1234"
-let usuarioIngresado = prompt("Ingrese su usuario")
-if(usuario === usuarioIngresado) {
-    let contraIngresada = prompt("Ingrese su contaseña")
+let productos = [
+    {id: 2, nombre:"zapatilla", categoria:"calzado", stock: 10, precio: 150},
+    {id: 5, nombre:"buzo", categoria:"indumentaria", stock: 50, precio: 50},
+    {id: 7, nombre:"gorra", categoria:"indumentaria", stock: 30, precio: 30},
+    {id: 9, nombre:"campera", categoria:"indumentaria", stock: 35, precio: 40},
+    {id: 12, nombre:"pantalon", categoria:"indumentaria", stock: 50, precio: 20}
+,
+]
 
-    if (usuario === usuarioIngresado && contraseña === contraIngresada) {
-        console.log(`Bienvenido ${usuarioIngresado}`)
+let mensaje = "1 - Productos\n2 - Informacion de un producto\n3 - Categorias\n4 - Salida"
 
+let opcion 
+do {
 
-        let proteina = +(7000)
-        let creatina = +(10000)
-        let barrasdeproteina = +(3000)
-        let aminoacios = +(2000)
-        let preentreno = +(5000)
+    opcion = Number(prompt ("Bienvenidos a Train\n"+mensaje))
+if (opcion ===1) {
+alert(listar(productos))
 
-        let costopackgym =(proteina+creatina+aminoacios)
-        let costopackpre =(preentreno+barrasdeproteina)
-        let productos = prompt(`Que producto deseas comprar \n
-                    -1 Pack gym
-                    -2 Pack pre`)
-
-        let precioProductoElegido = +("")
-        let precioUnidad = +("")
-
-        switch (productos) {
-            case "1":
-                precioProductoElegido = costopackgym
-                precioUnidad = (+(costopackgym * 2)).toFixed(2)
-                console.log(`El precio por unidad es ${precioUnidad}`)
-                break
-            case "2":
-                precioProductoElegido = costopackpre
-                precioUnidad = (+(costopackgym * 2)).toFixed(2)
-                console.log(`El precio por unidad es ${precioUnidad}`)
-                break
-            default:
-                console.log(`Ingrese una opcion correcta`)
-                break
-        }
-
-        let  cantidad = +(prompt (`Que cantidad queres?`))
-
-
-        function costodeventa(x){
-            if (cantidad < 10) {
-                costofinal = x * cantidad * 2.8
-            } else {
-                costofinal = x * cantidad * 2
-            }
-
-            return costofinal
-        }
-        let costodeventas = (costodeventa(precioProductoElegido)).toFixed(2)
-
-        console.log(`El costo total es ${costodeventas}`)
-
-
-    }else {
-        console.log(`La contraseña ${contraIngresada} es incorrecta`)
-    }
-
-
-
-
-
-
-} else {
-    console.log(`Usuario no registrado`)
+} else if (opcion === 2){
+    let id = Number(prompt("Ingrese id de producto\n" +  listar(productos)))
+    infoDeProducto(id)
+}else if (opcion === 3){
+    let categoria = prompt("Ingrese categoria calzado o indumentaria").toLocaleLowerCase()
+    let prodctosFiltrados = productos.filter(producto => producto.categoria === categoria)
+    alert(listar(prodctosFiltrados))
 }
 
-    
+} while (opcion !=0)
+
+function listar(productos){
+    let salida = productos.map(producto => `Nombre: ${producto.nombre} - ID: ${producto.id}`).join("\n")
+    alert(salida)
+}
+
+function infoDeProducto(id) {
+    let productoBuscado = productos.find(producto => producto.id === id)
+    alert(`nombre: ${productoBuscado.nombre} - categoria: ${productoBuscado.categoria} - precio: ${productoBuscado.precio}`)
+}
