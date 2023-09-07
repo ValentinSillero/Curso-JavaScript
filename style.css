@@ -1,0 +1,45 @@
+#productos{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    
+    }
+    
+    .tarjetaProducto{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 10px;
+        background-color: burlywood;
+        width: 200px;
+        height: 250px;
+    }
+    
+    img{
+        width: 100px;
+        height: 100px;
+    }
+    div.imagen{
+        width: 100px;
+        height: 100px;
+    }
+    
+    header{
+        background-color: burlywood;
+    }
+    #buscador{
+        display: block;
+        margin: auto;
+    }
+    main{
+        margin-top: 100px;
+    }
+    #carrito{
+        flex-direction: column;
+        min-height: 300px;
+        border: 1px solid black;
+    }
+    
