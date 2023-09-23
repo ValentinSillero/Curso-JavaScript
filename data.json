@@ -1,0 +1,42 @@
+[
+    {
+        "id": 2,
+        "nombre": "zapatilla",
+        "categoria": "calzado",
+        "stock": 10,
+        "precio": 150,
+        "rutaImg": "zapatillas.jpg"
+    },
+    {
+        "id": 5,
+        "nombre": "buzo",
+        "categoria": "indumentaria",
+        "stock": 50,
+        "precio": 50,
+        "rutaImg": "buzo.jpg"
+    },
+    {
+        "id": 7,
+        "nombre": "gorra",
+        "categoria": "accesorio",
+        "stock": 30,
+        "precio": 30,
+        "rutaImg": "gorra.jpg"
+    },
+    {
+        "id": 9,
+        "nombre": "campera",
+        "categoria": "indumentaria",
+        "stock": 35,
+        "precio": 40,
+        "rutaImg": "campera.jpg"
+    },
+    {
+        "id": 12,
+        "nombre": "pantalon",
+        "categoria": "indumentaria",
+        "stock": 50,
+        "precio": 20,
+        "rutaImg": "pantalonn.jpg"
+    }
+]

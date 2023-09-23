@@ -14,6 +14,13 @@ let productosOrg = [
 ]
 
 
+
+let botonFinalizarCompra = document.getElementById("finalizarCompra")
+botonFinalizarCompra.addEventListener("click", finalizarCompra)
+
+let verOcultarCarrito = document.getElementById("verCarrito")
+verOcultarCarrito.addEventListener("click", mostrarOcultar)
+
 let inputBuscador = document.getElementById("buscador")
 inputBuscador.addEventListener("input", () => filtrar(productosOrg,
     inputBuscador, "nombre"))
@@ -22,6 +29,17 @@ recuperarCarrito()
 renderizarTarjetas(productosOrg)
 }
 
+function finalizarCompra() {
+    localStorage.removeItem("carrito")
+    renderizarCarrito ()
+    lanzarAlerta("Compra finalizada", "Gracias por su compra","success")
+
+}
+
+function mostrarOcultar() {
+document.getElementById("productos").classList.toggle("oculto")
+document.getElementById("carrito").classList.toggle("oculto")
+}
 
 function filtrar (productos, input) {
     let productosFiltrados = productos.filter(producto => producto.nombre.includes(input.value)) 
@@ -74,11 +92,14 @@ function agregarAlCarrito(productos, e) {
     localStorage.setItem("carrito", JSON.stringify(carrito))
 
     renderizarCarrito()
+
+    lanzarAlerta("Producto agregado", null, "success")
 }
 
 
 function renderizarCarrito() {
     let contenedor = document.getElementById("carrito")
+
     contenedor.innerHTML = ""
     let carrito = recuperarCarrito()
     
@@ -96,3 +117,18 @@ function renderizarCarrito() {
 function recuperarCarrito() {
     return localStorage.getItem("carrito") ? JSON.parse (localStorage.getItem("carrito")) : []
 }
+
+function lanzarAlerta(title, text, icon) {
+    Swal.fire({
+        title: title,
+        text: text,
+        icon,
+        timer: 2000
+    })
+
+}
+
+fetch('./data.json')
+    .then(respuesta => respuesta.json())
+    .then(productos => principal(productos))
+    .catch(error => console.log(error))

@@ -1,3 +1,9 @@
+body{
+    background-color: #FAF0D7;
+}
+
+
+
 #productos{
     width: 100%;
     display: flex;
@@ -13,14 +19,14 @@
         justify-content: center;
         align-items: center;
         margin: 10px;
-        background-color: burlywood;
-        width: 200px;
-        height: 250px;
+        background-color: #65451F;
+        width: 300px;
+        height: 350px;
     }
     
     img{
-        width: 100px;
-        height: 100px;
+        width: 200px;
+        height: 200px;
     }
     div.imagen{
         width: 100px;
@@ -28,7 +34,7 @@
     }
     
     header{
-        background-color: burlywood;
+        background-color: #65451F;
     }
     #buscador{
         display: block;
@@ -42,4 +48,6 @@
         min-height: 300px;
         border: 1px solid black;
     }
-    
+    .oculto {
+        display: none !important;
+    }
